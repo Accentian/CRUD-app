@@ -37,8 +37,8 @@ Check the version using Windows PowerShell or another terminal using the command
 
 You can install Blitz using either of these commands: 
 
-- yarn global add blitz 
-- npm install -g blitz
+- `yarn global add blitz` 
+- `npm install -g blitz`
 
 Test to see if the installation is done correctly using the command: `blitz --help`
 
@@ -54,7 +54,8 @@ Once we’ve ensured Blitz work, we can begin creating a new app.
 In your terminal, make sure you are located where you wanted to generate your app.  
 
 Run this command: `blitz new <myAppName>`
-- Where <myAppName> is the name of your app
+
+- Where `<myAppName>` is the name of your app
   
 Blitz will prompt you to select options such as project’s language (I chose JavaScript), app template, and dependencies. Choose what is needed. I used only what was marked Recommended. Your new Blitz app is ready! Next steps, run these commands:
   
@@ -63,26 +64,14 @@ Blitz will prompt you to select options such as project’s language (I chose Ja
   
 A message should appear stating that the app can be accessed using this URL: http://localhost:3000
 
-There should already be some predefined features and functions. You will need an account to have full access. Create an account, or login if you already have one.
+There should already be some predefined features and functions. You will need an account to have full access. Create an account inside the app, or login if you already have one.
 
-## Commands
-
-Blitz comes with a powerful CLI that is designed to make development easy and fast. You can install it with `npm i -g blitz`
-
-```
-  blitz [COMMAND]
-
-  dev       Start a development server
-  build     Create a production build
-  start     Start a production server
-  export    Export your Blitz app as a static application
-  prisma    Run prisma commands
-  generate  Generate new files for your Blitz project
-  console   Run the Blitz console REPL
-  install   Install a recipe
-  help      Display help for blitz
-  test      Run project tests
-```
+## Troubleshooting and Errors
+  
+You may have issues with the login page and a few other pages. To fix this, locate the problematic files (may vary depending on how you structure the folder) and make these fixes: 
+  
+- For every `<Link>` (not `</Link>`), modify it to `Link legacyBehavior`
+- Example: `<Link legacyBehavior href={Routes.ForgotPasswordPage()}>`
 
 You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-overview) documentation.
 
