@@ -75,6 +75,21 @@ You may have issues with the login page and a few other pages. To fix this, loca
 
 You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-overview) documentation.
 
+## Implement a CRUD App
+
+We have the basic app down, now we need to include the features. We’ll be running the `blitz generate` command to create and prepare a few models. To create a simple CRUD app, we’ll be using this link as a reference: https://blitzjs.com/docs/cli-generate
+
+Note that the generalized template is as follows: `blitz generate [type] [model]`
+
+Make sure your terminal is within the folder of your app. Run this particular command line:
+
+```
+blitz generate all project name:string description:string
+```
+
+- Where `[type]` is `all`
+- Where `[model]` is `project` that takes in two strings called *name* and *description*
+
 ## Learn more
 
 Read the [Blitz.js Documentation](https://blitzjs.com/docs/getting-started) to learn more.
