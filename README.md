@@ -12,15 +12,10 @@ CRUD is an acronym for four functions that are considered necessary to implement
 Project performed on:
 
 -	Windows 11
-
 -	Visual Code Studio
-
 -	Windows PowerShell or Visual Code Studio Terminal
-
 - Node.js
-
 - Blitz.js
-
 
 ## Running the Blitz.js app
 
@@ -32,7 +27,7 @@ blitz dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# Manually Creating this Blitz.js CRUD App
+# Manually Creating this Blitz.js CRUD App: Installation and Setup
 
 The following is a tutorial on how to develop the exact CRUD app displayed in this repo. You need to install Blitz.js and Node.js. I would recommend starting from here through this link: https://blitzjs.com/docs/get-started#set-up-your-computer. 
 
@@ -40,10 +35,35 @@ Check the version using Windows PowerShell or another terminal using the command
 
 - If not, download Node.js from their website: https://nodejs.org/en/download/
 
+You can install Blitz using either of these commands: 
 
-## Tests
+- yarn global add blitz 
+- npm install -g blitz
 
+Test to see if the installation is done correctly using the command: `blitz --help`
 
+If this does not work due to Windows Execution Policy, use the following command: `Set-ExecutionPolicy -ExecutionPolicy Bypass`
+
+- You may need to Run as Administrator in Windows PowerShell 
+- You can learn more about Execution Policy here: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3
+
+Once we’ve ensured Blitz work, we can begin creating a new app.
+
+## Create a New App in Blitz.js
+
+In your terminal, make sure you are located where you wanted to generate your app.  
+
+Run this command: `blitz new <myAppName>`
+- Where <myAppName> is the name of your app
+  
+Blitz will prompt you to select options such as project’s language (I chose JavaScript), app template, and dependencies. Choose what is needed. I used only what was marked Recommended. Your new Blitz app is ready! Next steps, run these commands:
+  
+- `cd <myAppName>`
+- `blitz dev`
+  
+A message should appear stating that the app can be accessed using this URL: http://localhost:3000
+
+There should already be some predefined features and functions. You will need an account to have full access. Create an account, or login if you already have one.
 
 ## Commands
 
