@@ -90,6 +90,74 @@ blitz generate all project name:string description:string
 - Where `[type]` is `all`
 - Where `[model]` is `project` that takes in two strings called *name* and *description*
 
+## Modify the JavaScript to include Description
+
+Because the default models generated possess only `name`, we need to manually modify the JavaScript to allow the `description` to be taken into account. Here are the key files that I had modified and the lines of code that I included into those files.
+
+- ..\src\projects\components\ProjectForm.js
+> `<LabeledTextField name="description" label="description" placeholder="Description" />`
+
+- ..\src\projects\mutations\updateProject.js
+> `description: z.string(),`
+
+- ..\src\projects\mutations\createProject.js
+> `description: z.string(),`
+
+## Modifiy Database Provider from SQLite to MySQL
+
+The default provider is SQLite. We can switch over to MySQL and MongoDB. As of now, only MySQL has been successfully switched from SQLite. To begin, we must have MySQL installed into our computer. Your setup may be different and may include MySQL. If you do not have MySQL, you can install MySQL using this link: https://dev.mysql.com/downloads/installer/
+
+To make the switch from SQLite to MySQL, we first need to modify the following files:
+
+- schema.prisma
+> `DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE”`
+
+```
+Host    HOST	    IP address/domain of your database server, e.g. localhost
+
+Port    PORT	    Port on which your database server is running, e.g. 5432
+
+User    USER	    Name of your database user, e.g. janedoe
+
+Password    PASSWORD	Password for your database user
+
+Database    DATABASE	Name of the database you want to use, e.g. mydb
+```
+
+- .env.local
+> `provider = “sqlite“ -> provider = "mysql"`
+
+After the modification is made, run this command line: 
+
+`blitz prisma migrate dev`
+
+If there's an issue regarding migration, delete the **`migragtions`** folder located in the **`db`** folder and try again.
+
+## Update and Run the CRUD App
+
+Once the command is executed successfully, the terminal will prompt the user to update the database.  Allow the database to be updated. 
+
+Run `blitz dev` to refresh and open the app and select `‘Go to /projects’`
+
+If there’s any errors regarding `<Link>` and `<a>`, refer to the **Troubleshooting and Errors** section.
+
+
+You will see a link called **“Create Project”** and two buttons named *Previous* and *Next*.
+
+- Click on Create Project
+- You will be redirected to another page. Enter the name of your project and hit the button “Create Project”
+- Fill out Name and Description fields and have fun creating, reading, updating, and deleting 
+
+
+**References Used:**
+
+https://www.prisma.io/docs/concepts/database-connectors/mysql
+
+https://blitzjs.com/docs/database-overview
+
+https://www.youtube.com/watch?v=xqbGZUHwqWE
+
+
 ## Learn more
 
 Read the [Blitz.js Documentation](https://blitzjs.com/docs/getting-started) to learn more.
